@@ -1,36 +1,71 @@
-<nav class="navbar navbar-expand-lg bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled">Disabled</a>
-        </li>
-      </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+<nav class="navbar navbar-expand-lg navbar-secondary">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img id="logoSize" src="https://www.zoomcar.com/blog/wp-content/uploads/2020/03/footer-logo.png" alt=""
+          class="d-inline-block align-text-top">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+
+        </ul>
+        <form class="d-flex">
+          <button class="btn btn-outline-primary round-button mx-2" type="button">Login</button>
+          <button class="btn btn-success round-button" (click)="openRegister()" type="button">Register</button>
+        </form>
+      </div>
     </div>
+  </nav>
+  <div class="container-fluid pt-3">
+    <router-outlet></router-outlet>
   </div>
-</nav>
+
+  <div id="registerModal" class="modal">
+    <div class="modal-dialog">
+         <div class="modal-content">
+        <div class="modal-header">
+           <h4 class="modal-title">Register</h4>
+          <button type="button" class="btn-close" (click)="closeRegister()" data-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-12">
+                <label for="" >Name</label>
+                <input type="text" [(ngModel)]="registerObj.name" class="form-control">
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <label for="" >Email</label>
+                    <input type="email" [(ngModel)]="registerObj.emailId" class="form-control">
+                </div>
+                <div class="col-6">
+                    <label for="" >Phone number</label>
+                    <input type="number" [(ngModel)]="registerObj.mobileNo" class="form-control">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <label for="" >Who Are You </label>
+                    <select name="" id="" [(ngModel)]="registerObj.userRole" class="form-control">
+                    <option value="">Select Your Role</option>
+                    <option value="Customer">Customer</option>
+                    <option value="Customer">Customer</option>
+                </select> 
+                </div>
+                <div class="col-6">
+                    <label for="" >Password</label>
+                    <input type="password" [(ngModel)]="registerObj.password" class="form-control">
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button"  (click)="closeRegister()" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+     </div>
+  </div>
