@@ -8,6 +8,8 @@ import { BookingComponent } from './components/booking/booking.component';
 import { CarComponent } from './components/car/car.component';
 import { FindComponent } from './components/find/find.component';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { InfoCardComponent } from './reusableComponent/info-card/info-card.component';
 
 @NgModule({
   declarations: [
@@ -15,12 +17,14 @@ import { FormsModule } from '@angular/forms';
     HomeComponent,
     BookingComponent,
     CarComponent,
-    FindComponent
+    FindComponent,
+    InfoCardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

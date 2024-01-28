@@ -1,1 +1,67 @@
-<p>car works!</p>
+<div class="row">
+    <div class="col-12 text-end">
+        <button class="btn btn-success" (click)="openPanel()"> Add New</button>
+    </div>
+</div>
+<div class="container car-list-home-container">
+    <div class="row car-list-home">
+        <div class="col-3" *ngFor="let car of carList">
+            <!-- {{carList|json}} -->
+            <app-info-card [carsData]="car"></app-info-card>
+        </div>
+    </div>
+</div>
+
+
+<!-- new car modal  -->
+<div id="newCarModal" class="modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Register</h4>
+                <button type="button" class="btn-close" (click)="closePanel()" data-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-4">
+                        <label for="">Brand</label>
+                        <input type="text" [(ngModel)]="carObj.brand" class="form-control">
+                    </div>
+                    <div class="col-6">
+                        <label for="">Model Name</label>
+                        <input type="text" [(ngModel)]="carObj.name" class="form-control">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <label for="">Pricing</label>
+                        <input type="number" [(ngModel)]="carObj.number" class="form-control">
+                    </div>
+                    <div class="col-6">
+                        <label for="">Phone number</label>
+                        <input type="number" [(ngModel)]="carObj.mobileNo" class="form-control">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <label for="">Who Are You </label>
+                        <select name="" [(ngModel)]="carObj.userRole" class="form-control">
+                            <option value="">Select Your Role</option>
+                            <option value="Customer">Customer</option>
+                            <option value="Customer">CarOwner</option>
+                        </select>
+                    </div>
+                    <div class="col-6">
+                        <label for="">Password</label>
+                        <input type="password" [(ngModel)]="carObj.password" class="form-control">
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" (click)="closePanel()" class="btn btn-danger" data-dismiss="modal">Close</button>
+                <button type="button" (click)="onLogin()" class="btn btn-danger">Login</button>
+            </div>
+        </div>
+    </div>
+</div>
